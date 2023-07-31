@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/main.css">
+    <style>
+        header{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1>Teste de framework</h1>
+    <h2>Login</h2>
+    </header>
+
+    <div>
+        <form method="POST" action="/">
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required>
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <!-- Verifica se a matrícula não está autorizada e exibe o alert -->
+    {% if invalid_matricula %}
+    <script>
+        alert("Matrícula não autorizada, tente novamente.");
+    </script>
+    {% endif %}
+</body>
+</html>

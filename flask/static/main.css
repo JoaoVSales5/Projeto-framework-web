@@ -1,0 +1,44 @@
+
+table {
+    border-spacing: 0;
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td{
+    padding: 8px;
+    text-align: center;
+}
+
+button{
+    margin:1rem;
+}
+
+header{
+    background-color: rgb(240, 240, 115);
+    padding: 5px;
+    margin: -10px -10px 10px -10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18pt;
+    border-bottom: 2px solid;
+}
+
+div{
+    background-color: blueviolet;
+    padding: 5px;
+    display: block;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    margin: 100px auto 100px auto;
+    border: 2px solid;
+    padding-top: 30px;
+    border-radius: 30px;
+}
+
+body{
+    background-color: rgb(202, 202, 202);
+}
