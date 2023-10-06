@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for
+from flask.views import View
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user, UserMixin
 import mysql.connector
 
@@ -28,28 +29,28 @@ class User(UserMixin):
 def load_user(user_id):
     return User(user_id)
 
-# Rota da página inicial (login)
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        matricula = request.form['matricula']
+# Página de login (visualização baseada em classe)
+class IndexView(View):
+    methods = ['GET', 'POST']
 
-        # Verificar se a matrícula existe no banco de dados
-        cursor.execute("SELECT * FROM pessoa WHERE matricula = %s", (matricula,))
-        pessoa = cursor.fetchone()
+    def dispatch_request(self):
+        if request.method == 'POST':
+            matricula = request.form['matricula']
+            # Verificar se a matrícula existe no banco de dados
+            cursor.execute("SELECT * FROM pessoa WHERE matricula = %s", (matricula,))
+            pessoa = cursor.fetchone()
+            if pessoa:
+                # Autenticar o usuário e redirecionar para a página de opções
+                user = User(matricula)
+                login_user(user)
+                return redirect('/opcao')
+            else:
+                return render_template('index.html', invalid_matricula=True)
+        return render_template('index.html')
 
-        if pessoa:
-            # Se a matrícula existe, autenticar o usuário e redirecionar para a página de opções
-            user = User(matricula)
-            login_user(user)
-            return redirect('/opcao')
-        else:
-            # Se a matrícula não existe, exibir alert em JavaScript e redirecionar para a página inicial
-            return render_template('index.html', invalid_matricula=True)
+app.add_url_rule('/', view_func=IndexView.as_view('index'))
 
-    return render_template('index.html')
-
-# Rota da página de opções
+# Página de opções
 @app.route('/opcao')
 @login_required
 def opcao():
@@ -59,7 +60,20 @@ def opcao():
     nome = cursor.fetchone()[0]
     return render_template('opcao.html', nome=nome)
 
-# Rota da página de dados
+# Página de detalhes da pessoa
+@app.route('/pessoa/<matricula>')
+@login_required
+def detalhes_pessoa(matricula):
+    cursor.execute("SELECT * FROM pessoa WHERE matricula = %s", (matricula,))
+    pessoa = cursor.fetchone()
+    
+    if pessoa:
+        return render_template('detalhes_pessoa.html', pessoa=pessoa)
+    else:
+        # Trate o caso em que a matrícula não existe
+        return render_template('matricula_nao_encontrada.html')
+
+# Página de dados
 @app.route('/dados', methods=['GET', 'POST'])
 @login_required
 def dados():
@@ -82,12 +96,6 @@ def dados():
         return redirect(url_for('dados'))
 
     return render_template('dados.html', nome=nome, dados=dados)
-
-# Rota de logout
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
