@@ -9,9 +9,9 @@ app.secret_key = 'mysecretkey'  # Chave secreta para sessão
 # Configuração do banco de dados
 db = mysql.connector.connect(
     host='localhost',
-    database='bd_pessoa',
+    database='pabd_moveis',
     user='root',
-    password='L@binfo212'
+    password='labinfo'
 )
 cursor = db.cursor()
 

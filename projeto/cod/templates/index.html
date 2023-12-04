@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/main.css">
+    <style>
+        header{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1>Teste de framework</h1>
+    <h2>Login</h2>
+    </header>
+
+    <div>
+        <form method="POST" action="/">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <!-- Verifica se a cpf não está autorizada e exibe o alert -->
+    {% if invalid_cpf %}
+    <script>
+        alert("Matrícula não autorizada, tente novamente.");
+    </script>
+    {% endif %}
+</body>
+</html>

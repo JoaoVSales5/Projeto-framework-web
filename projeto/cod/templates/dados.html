@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dados</title>
+    <link rel="stylesheet" href="../static/dados.css">
+    <style>
+        header{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <header>
+    <h1>Teste de framework</h1>
+    <h2>Dados</h2>
+    </header>
+
+    <h3>Usuário: {{ nome }}</h3>
+
+    <div id="um">
+        <h4>Dados existentes:</h4>
+        <table>
+            <tr>
+                    <th>
+                        Matrícula
+                    </th>
+                {%for dado in dados%}
+                    <td>
+                        {{dado[0]}}
+                    </td>
+                {%endfor%}
+            </tr>
+
+            <tr>
+                <th>
+                    Nome
+                </th>
+                {%for dado in dados%}
+                <td>
+                    {{dado[1]}}
+                </td>
+                {%endfor%}
+            </tr>
+            <tr>
+                <th>
+                    Cargo
+                </th>
+                {%for dado in dados%}
+                <td>
+                    {{dado[2]}}
+                </td>
+                {%endfor%}
+            </tr>
+        </table>
+    </div>
+
+    <div id="dois">
+        <h4>Inserir novo dado:</h4>
+        <form method="POST" action="/dados">
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required>
+            <br><br>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <br><br>
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" name="cargo" required>
+            <br><br>
+            <input type="submit" value="Inserir">
+        </form>
+    </div>
+
+    <a href="/logout">Sair</a>
+    
+</body>
+</html>
