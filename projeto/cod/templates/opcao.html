@@ -4,7 +4,15 @@
     <title>Opções</title>
     <link rel="stylesheet" href="../static/opcao.css">
     <style>
-        header{text-align: center;}
+        header { text-align: center; }
+        .sub-options {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .visible {
+            max-height: 100px; /* Defina a altura máxima conforme necessário */
+        }
     </style>
 </head>
 <body>
@@ -13,11 +21,34 @@
         <h2>Opções</h2>
     </header>
 
-        <p>Olá {{ nome }}</p>
+    <p>Olá {{ nome }}</p>
 
-        <div id="um"><a href="/dados">Ver Dados</a></div>
-        <br><br>
-        <div id="dois"><a href="/logout">Sair</a></div>
+    <button onclick="toggleOptions('funcionarios')">Funcionários</button>
+    <div class="sub-options" id="funcionarios">
+        <button>Consultar funcionário</button>
+        <button>Adicionar funcionário</button>
+        <button>Atualizar funcionário</button>
+    </div>
+
+    <br><br>
+
+    <button onclick="toggleOptions('produtos')">Produtos</button>
+    <div class="sub-options" id="produtos">
+        <button>Consultar produto</button>
+        <button>Adicionar produto</button>
+        <button>Atualizar produto</button>
+    </div>
+
+    <script>
+        function toggleOptions(id) {
+            var options = document.getElementById(id);
+            options.classList.toggle('visible');
+        }
+    </script>
+
+    <br><br>
+
+    <div id="sair"><a href="/logout">Sair</a></div>
 
 </body>
 </html>
