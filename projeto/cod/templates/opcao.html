@@ -11,7 +11,15 @@
             transition: max-height 0.5s ease-in-out;
         }
         .visible {
-            max-height: 100px; /* Defina a altura máxima conforme necessário */
+            max-height: 200px; /* Defina a altura máxima conforme necessário */
+        }
+        table {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .visible-table {
+            max-height: 300px; /* Altura máxima da tabela conforme necessário */
         }
     </style>
 </head>
@@ -25,7 +33,43 @@
 
     <button onclick="toggleOptions('funcionarios')">Funcionários</button>
     <div class="sub-options" id="funcionarios">
-        <button>Consultar funcionário</button>
+        <button onclick="showTable('tabelaFuncionarios')">Consultar funcionário</button>
+
+        <table id="tabelaFuncionarios">
+            <tr>
+                <th>
+                    CPF
+                </th>
+                {%for dado in dadosf%}
+                <td>
+                    {{dado[0]}}
+                </td>
+                {%endfor%}
+            </tr>
+
+            <tr>
+                <th>
+                    Nome
+                </th>
+                {%for dado in dadosf%}
+                <td>
+                    {{dado[1]}}
+                </td>
+                {%endfor%}
+            </tr>
+
+            <tr>
+                <th>
+                    Função
+                </th>
+                {%for dado in dadosf%}
+                <td>
+                    {{dado[2]}}
+                </td>
+                {%endfor%}
+            </tr>
+        </table>
+
         <button>Adicionar funcionário</button>
         <button>Atualizar funcionário</button>
     </div>
@@ -34,7 +78,43 @@
 
     <button onclick="toggleOptions('produtos')">Produtos</button>
     <div class="sub-options" id="produtos">
-        <button>Consultar produto</button>
+        <button onclick="showTable('tabelaProdutos')">Consultar produto</button>
+
+            <table id="tabelaProdutos">
+                <tr>
+                    <th>
+                        Código
+                    </th>
+                    {%for dado in dadosp%}
+                    <td>
+                        {{dado[0]}}
+                    </td>
+                    {%endfor%}
+                </tr>
+
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    {%for dado in dadosp%}
+                    <td>
+                        {{dado[1]}}
+                    </td>
+                    {%endfor%}
+                </tr>
+
+                <tr>
+                    <th>
+                        Tipo
+                    </th>
+                    {%for dado in dadosp%}
+                    <td>
+                        {{dado[2]}}
+                    </td>
+                    {%endfor%}
+                </tr>
+            </table>
+
         <button>Adicionar produto</button>
         <button>Atualizar produto</button>
     </div>
@@ -43,6 +123,11 @@
         function toggleOptions(id) {
             var options = document.getElementById(id);
             options.classList.toggle('visible');
+        }
+
+        function showTable(tableId) {
+            var table = document.getElementById(tableId);
+            table.classList.toggle('visible-table');
         }
     </script>
 

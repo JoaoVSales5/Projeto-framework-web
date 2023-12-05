@@ -57,7 +57,18 @@ def opcao():
     # Buscar nome da pessoa no banco de dados
     cursor.execute("SELECT nome FROM funcionario WHERE cpf = %s", (cpf,))
     nome = cursor.fetchone()[0]
-    return render_template('opcao.html', nome=nome)
+
+
+
+    # Exibir dados existentes dos funcionários
+    cursor.execute("SELECT * FROM funcionario")
+    dadosf = cursor.fetchall()
+
+    # Exibir dados existentes dos produtos
+    cursor.execute("SELECT * FROM produto")
+    dadosp = cursor.fetchall()
+
+    return render_template('opcao.html', nome=nome, dadosf=dadosf, dadosp=dadosp)
 
 # Rota de logout
 @app.route('/logout')
