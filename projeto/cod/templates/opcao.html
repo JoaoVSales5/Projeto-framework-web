@@ -6,20 +6,16 @@
     <style>
         header { text-align: center; }
         .sub-options {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-        }
-        .visible {
-            max-height: 200px; /* Defina a altura máxima conforme necessário */
+            display: none;
         }
         table {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
+            display: none;
         }
-        .visible-table {
-            max-height: 300px; /* Altura máxima da tabela conforme necessário */
+        .visible {
+            display: block;
+        }
+        form {
+            display: none;
         }
     </style>
 </head>
@@ -34,8 +30,7 @@
     <button onclick="toggleOptions('funcionarios')">Funcionários</button>
     <div class="sub-options" id="funcionarios">
         <button onclick="showTable('tabelaFuncionarios')">Consultar funcionário</button>
-
-        <table id="tabelaFuncionarios">
+        <table id="tabelaFuncionarios" class="table">
             <tr>
                 <th>
                     CPF
@@ -70,8 +65,15 @@
             </tr>
         </table>
 
-        <button>Adicionar funcionário</button>
-        <button>Atualizar funcionário</button>
+        <button onclick="showForm('formFuncionarios')">Adicionar funcionário</button>
+            <form id="formFuncionarios" class="form">
+                <label for="cpf">CPF:</label><br>
+                <input type="text" id="cpf" name="cpf"><br>
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome">
+            </form>
+        <button>Atualizar dados do funcionário</button>
+
     </div>
 
     <br><br>
@@ -79,55 +81,67 @@
     <button onclick="toggleOptions('produtos')">Produtos</button>
     <div class="sub-options" id="produtos">
         <button onclick="showTable('tabelaProdutos')">Consultar produto</button>
+        <table id="tabelaProdutos" class="table">
+            <tr>
+                <th>
+                    Código
+                </th>
+                {%for dado in dadosp%}
+                <td>
+                    {{dado[0]}}
+                </td>
+                {%endfor%}
+            </tr>
 
-            <table id="tabelaProdutos">
-                <tr>
-                    <th>
-                        Código
-                    </th>
-                    {%for dado in dadosp%}
-                    <td>
-                        {{dado[0]}}
-                    </td>
-                    {%endfor%}
-                </tr>
+            <tr>
+                <th>
+                    Nome
+                </th>
+                {%for dado in dadosp%}
+                <td>
+                    {{dado[1]}}
+                </td>
+                {%endfor%}
+            </tr>
 
-                <tr>
-                    <th>
-                        Nome
-                    </th>
-                    {%for dado in dadosp%}
-                    <td>
-                        {{dado[1]}}
-                    </td>
-                    {%endfor%}
-                </tr>
-
-                <tr>
-                    <th>
-                        Tipo
-                    </th>
-                    {%for dado in dadosp%}
-                    <td>
-                        {{dado[2]}}
-                    </td>
-                    {%endfor%}
-                </tr>
-            </table>
+            <tr>
+                <th>
+                    Tipo
+                </th>
+                {%for dado in dadosp%}
+                <td>
+                    {{dado[2]}}
+                </td>
+                {%endfor%}
+            </tr>
+        </table>
 
         <button>Adicionar produto</button>
-        <button>Atualizar produto</button>
+        <button>Atualizar dados do produto</button>
+
     </div>
 
     <script>
         function toggleOptions(id) {
             var options = document.getElementById(id);
+            var tables = options.getElementsByTagName("table");
+            var form = options.getElementsByTagName("form");
+
+            for (var i = 0; i < tables.length; i++) {
+                tables[i].classList.remove('visible');
+            }
+
             options.classList.toggle('visible');
         }
 
         function showTable(tableId) {
             var table = document.getElementById(tableId);
-            table.classList.toggle('visible-table');
+            table.classList.toggle('visible');
+        }
+
+        function showForm(formId) {
+            var form = document.getElementById(formId);
+            form.classList.toggle('visible');
         }
     </script>
 
