@@ -29,7 +29,7 @@
 
     <button onclick="toggleOptions('funcionarios')">Funcionários</button>
     <div class="sub-options" id="funcionarios">
-        <button onclick="showTable('tabelaFuncionarios')">Consultar funcionário</button>
+        <button onclick="showTable('tabelaFuncionarios')">Consultar funcionário</button><br>
         <table id="tabelaFuncionarios" class="table">
             <tr>
                 <th>
@@ -65,14 +65,39 @@
             </tr>
         </table>
 
-        <button onclick="showForm('formFuncionarios')">Adicionar funcionário</button>
-            <form id="formFuncionarios" class="form">
+        <button onclick="showForm('formFuncionarios')">Adicionar funcionário</button><br>
+            <form id="formFuncionarios" class="form" method="POST" action="/add_funcionario">
                 <label for="cpf">CPF:</label><br>
-                <input type="text" id="cpf" name="cpf"><br>
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="cpf" name="cpf"><br><br>
+                <label for="nomeF">Nome:</label><br>
+                <input type="text" id="nomeF" name="nomeF"><br><br>
+                <label for="funcao">Função:</label><br>
+                <input type="text" id="funcao" name="funcao"><br><br>
+                <label for="salario">Salário:</label><br>
+                <input type="text" id="salario" name="salario"><br><br>
+                <label for="telefone">Telefone:</label><br>
+                <input type="text" id="telefone" name="telefone"><br><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email"><br><br>
+                <input type="submit" value="Enviar">
             </form>
-        <button>Atualizar dados do funcionário</button>
+        <button onclick="showForm('formAtualizarFuncionario')">Atualizar dados do funcionário</button>
+            <form id="formAtualizarFuncionario" class="form" method="POST" action="/atualizar_funcionario">
+                <label for="cpf">CPF do Funcionário:</label><br>
+                <input type="text" id="cpf" name="cpf"><br><br>
+                <label for="novo_nome">Novo Nome:</label><br>
+                <input type="text" id="novo_nome" name="novo_nome"><br><br>
+                <label for="nova_funcao">Nova Função:</label><br>
+                <input type="text" id="nova_funcao" name="nova_funcao"><br><br>
+                <label for="novo_salario">Novo Salário:</label><br>
+                <input type="text" id="novo_salario" name="novo_salario"><br><br>
+                <label for="novo_telefone">Novo Telefone:</label><br>
+                <input type="text" id="novo_telefone" name="novo_telefone"><br><br>
+                <label for="novo_email">Novo Email:</label><br>
+                <input type="text" id="novo_email" name="novo_email"><br><br>
+                <input type="submit" value="Atualizar">
+            </form>
+        
 
     </div>
 
@@ -80,7 +105,7 @@
 
     <button onclick="toggleOptions('produtos')">Produtos</button>
     <div class="sub-options" id="produtos">
-        <button onclick="showTable('tabelaProdutos')">Consultar produto</button>
+        <button onclick="showTable('tabelaProdutos')">Consultar produto</button><br>
         <table id="tabelaProdutos" class="table">
             <tr>
                 <th>
@@ -116,8 +141,43 @@
             </tr>
         </table>
 
-        <button>Adicionar produto</button>
-        <button>Atualizar dados do produto</button>
+        <button onclick="showForm('formProdutos')">Adicionar produto</button><br>
+            <form id="formProdutos" class="form" method="POST" action="/add_produto">
+                <label for="codigo">Código:</label><br>
+                <input type="text" id="codigo" name="codigo"><br><br>
+                <label for="nomeP">Nome:</label><br>
+                <input type="text" id="nomeP" name="nomeP"><br><br>
+                <label for="tipo">Tipo:</label><br>
+                <input type="text" id="tipo" name="tipo"><br><br>
+                <label for="descricao">Descrição:</label><br>
+                <input type="text" id="descricao" name="descricao"><br><br>
+                <label for="valor">Valor:</label><br>
+                <input type="text" id="valor" name="valor"><br><br>
+                <label for="qntdEstoque">Quantidade no Estoque:</label><br>
+                <input type="text" id="qntdEstoque" name="qntdEstoque"><br><br>
+                <label for="cnpjFornecedor">CNPJ do Fornecedor:</label><br>
+                <input type="text" id="cnpjFornecedor" name="cnpjFornecedor"><br><br>
+                <input type="submit" value="Enviar">
+            </form>
+        <button onclick="showForm('formAtualizarProduto')">Atualizar dados do produto</button>
+            <form id="formAtualizarProduto" class="form" method="POST" action="/atualizar_produto">
+                <label for="codigo">Código do Produto:</label><br>
+                <input type="text" id="codigo" name="codigo"><br><br>
+                <label for="novo_nome">Novo Nome:</label><br>
+                <input type="text" id="novo_nome" name="novo_nome"><br><br>
+                <label for="novo_tipo">Novo Tipo:</label><br>
+                <input type="text" id="novo_tipo" name="novo_tipo"><br><br>
+                <label for="nova_descricao">Nova Descrição:</label><br>
+                <input type="text" id="nova_descricao" name="nova_descricao"><br><br>
+                <label for="novo_valor">Novo Valor:</label><br>
+                <input type="text" id="novo_valor" name="novo_valor"><br><br>
+                <label for="nova_qntdEstoque">Nova Quantidade:</label><br>
+                <input type="text" id="nova_qntdEstoque" name="nova_qntdEstoque"><br><br>
+                <label for="novo_cnpjFornecedor">Novo CNPJ:</label><br>
+                <input type="text" id="novo_cnpjFornecedor" name="novo_cnpjFornecedor"><br><br>
+                <input type="submit" value="Atualizar">
+            </form>
+        
 
     </div>
 
