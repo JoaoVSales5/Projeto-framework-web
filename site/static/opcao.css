@@ -37,16 +37,32 @@ header#cabecalho a{
 }
 
 table {
+    margin-left: 16px;
     border-spacing: 0;
 }
 
-table, th, td {
-    border: 1px solid black;
+th{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    padding: 10px;
+    border: 1.5px solid black;
 }
 
 td{
-    padding: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    padding: 10px;
     text-align: center;
+    border: 1.5px solid black;
+}
+
+form{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    border: 2px solid black;
+    margin-left: 16px;
+    margin-right: 1280px;
+    padding: 10px;
 }
 
 button{

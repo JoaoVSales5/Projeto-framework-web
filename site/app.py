@@ -9,8 +9,8 @@ app.secret_key = 'mysecretkey'  # Chave secreta para sessão
 db = mysql.connector.connect(
     host='localhost',
     database='pabd_moveis',
-    user='Gabriel',
-    password='#GA12112004'
+    user='root',
+    password='L@binfo212'
 )
 cursor = db.cursor()
 

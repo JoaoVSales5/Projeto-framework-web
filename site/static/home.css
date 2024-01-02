@@ -56,13 +56,13 @@ figure.roupeiros li{
 }
 
 figure.roupeiros img{
-    margin-left: 325px;
+    margin-left: 250px;
     margin-top: 30px;
 }
 
 figure.roupeiros figcaption{
     text-align: center;
-    margin-left: 315px;
+    margin-left: 250px;
 }
 
 /* Formatação do setor de sofás */
@@ -75,13 +75,13 @@ figure.sofas li{
 }
 
 figure.sofas img{
-    margin-left: 325px;
+    margin-left: 250px;
     margin-top: 30px;
 }
 
 figure.sofas figcaption{
     text-align: center;
-    margin-left: 315px;
+    margin-left: 250px;
 }
 
 /* Formatação do setor de cozinhas */
@@ -94,13 +94,13 @@ figure.cozinhas li{
 }
 
 figure.cozinhas img{
-    margin-left: 325px;
+    margin-left: 250px;
     margin-top: 30px;
 }
 
 figure.cozinhas figcaption{
     text-align: center;
-    margin-left: 315px;
+    margin-left: 250px;
 }
 
 /* Formatação do rodapé */
@@ -122,17 +122,17 @@ footer#rodape p{
 footer#rodape img#elemento1{
     position: absolute;
     right: 500px;
-    bottom: -425px
+    bottom: -590px
 }
 
 footer#rodape img#elemento2{
     position: absolute;
     right: 400px;
-    bottom: -425px
+    bottom: -590px
 }
 
 footer#rodape img#elemento3{
     position: absolute;
     right: 300px;
-    bottom: -425px
+    bottom: -590px
 }

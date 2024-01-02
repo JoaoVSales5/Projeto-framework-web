@@ -23,7 +23,7 @@ header#cabecalho h1{
     font-size: 32pt;
     color: #ffffff;
     margin-top: 75px;
-    padding-right: 1015px;
+    padding-right: 1000px;
 }
 
 header#cabecalho p{
@@ -69,17 +69,17 @@ footer#rodape p{
 footer#rodape img#elemento1{
     position: absolute;
     right: 500px;
-    bottom: 58px
+    bottom: -107px
 }
 
 footer#rodape img#elemento2{
     position: absolute;
     right: 400px;
-    bottom: 58px
+    bottom: -107px
 }
 
 footer#rodape img#elemento3{
     position: absolute;
     right: 300px;
-    bottom: 58px
+    bottom: -107px
 }
