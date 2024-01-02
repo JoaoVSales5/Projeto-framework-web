@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Casas Portiguar</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <style>
+        header{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <header id="cabecalho">
+        <hgroup>
+            <h1>casas portiguar</h1>
+        </hgroup>
+    </header>
+
+    <div id="interface">
+        <form method="POST" action="/index">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+            <br>
+            <br>
+            <br>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    {% if invalid_cpf %}
+    <script>
+        alert("Matrícula não autorizada, tente novamente.");
+    </script>
+    {% endif %}
+
+    <footer id="rodape">
+        <p>casas portiguar</p>
+        <a href="https://pt-br.facebook.com/" target="_blank"><img id="elemento1" src="{{ url_for('static', filename='images/facebook-logo.png') }}" widht="50px" height="50px"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img id="elemento2" src="{{ url_for('static', filename='images/youtube-logo.png') }}" widht="50px" height="50px"></a>
+        <a href="https://twitter.com/" target="_blank"><img id="elemento3" src="{{ url_for('static', filename='images/twitter-logo.png') }}" widht="50px" height="50px"></a>
+    </footer>
+</body>
+</html>

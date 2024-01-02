@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Casas Portiguar</title>
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+    <style>
+        header{text-align: center;}
+    </style>
+</head>
+<body>
+
+    <header id="cabecalho">
+        <hgroup>
+            <h1>casas portiguar</h1>
+        </hgroup>
+
+        <a href="/index">Olá, entre como administrador</a>
+    </header>
+
+    <div id="interface">
+        <section id="corpo">
+            <h2 id="titulo">Roupeiros</h2>
+            <figure class="roupeiros">
+                <ul>
+                    <li>
+                        <img src="{{ url_for('static', filename='images/roupeiro_paris.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Roupeiro Paris <br> R$ 1.299,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/roupeiro_monterei.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Roupeiro Monte Rei <br> R$ 1.459,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/roupeiro_fortaleza.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Roupeiro Fortaleza <br> R$ 1.159,99 </p>
+                        </figcaption>
+                    </li>
+                </ul>
+            </figure>
+
+            <h2 id="titulo">Sofás</h2>
+            <figure class="sofas">
+                <ul>
+                    <li>
+                        <img src="{{ url_for('static', filename='images/sofa_benetton.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Sofá Benetton <br> R$ 1.759,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/sofa_treton.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Sofá Treton <br> R$ 1.999,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/sofa_york.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Sofá York <br> R$ 1.699,99 </p>
+                        </figcaption>
+                    </li>
+                </ul>
+            </figure>
+
+            <h2 id="titulo">Cozinha</h2>
+            <figure class="cozinhas">
+                <ul>
+                    <li>
+                        <img src="{{ url_for('static', filename='images/cozinha_porto.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Cozinha Porto <br> R$ 1.099,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/cozinha_reims.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Cozinha Reims <br> R$ 959,99 </p>
+                        </figcaption>
+                    </li>
+
+                    <li>
+                        <img src="{{ url_for('static', filename='images/cozinha_rubi.jpg') }}" widht="150px" height="150px">
+                        <figcaption>
+                            <p>Cozinha Rubi <br> R$ 1.159,99 </p>
+                        </figcaption>
+                    </li>
+                </ul>
+            </figure>
+        </section>
+
+        <footer id="rodape">
+            <p>casas portiguar</p>
+            <a href="https://pt-br.facebook.com/" target="_blank"><img id="elemento1" src="{{ url_for('static', filename='images/facebook-logo.png') }}" widht="50px" height="50px"></a>
+            <a href="https://www.youtube.com/" target="_blank"><img id="elemento2" src="{{ url_for('static', filename='images/youtube-logo.png') }}" widht="50px" height="50px"></a>
+            <a href="https://twitter.com/" target="_blank"><img id="elemento3" src="{{ url_for('static', filename='images/twitter-logo.png') }}" widht="50px" height="50px"></a>
+        </footer>
+    </div>
+</body>
+</html>
